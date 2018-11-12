@@ -1,1 +1,1 @@
-# MiraAI
+# MirAI
