@@ -4,7 +4,7 @@
   "description": "Deep Learning to found a visual bugs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init": "nodemon index.js dev"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,14 @@
   "bugs": {
     "url": "https://github.com/PatrykMaternicki/MirAI/issues"
   },
-  "homepage": "https://github.com/PatrykMaternicki/MirAI#readme"
+  "homepage": "https://github.com/PatrykMaternicki/MirAI#readme",
+  "devDependencies": {
+    "chalk": "^2.4.1",
+    "chunk": "0.0.2",
+    "connect": "^3.6.6",
+    "nodemon": "^1.18.6",
+    "puppeteer": "^1.10.0",
+    "request": "^2.88.0",
+    "xmldom": "^0.1.27"
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "site" : "http://budzetalert.pl",
+  "wanted_file": "robots.txt",
+  "sizeSitemap": 1,
+  "chunkSize": 50,
+  "strategy": {
+    "typeStrategy" : "random",
+    "pickLink": 3
+  }
+}
