@@ -10,7 +10,7 @@ npm install
 npm run init
 ``
 3. Use this code.
-``
+```sh
 const MirAI = require('./src');
 
 const config = {
@@ -29,5 +29,5 @@ function run() {
 }
 
 run();
-``
+```
 4. enjoy
