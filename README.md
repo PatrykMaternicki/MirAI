@@ -35,7 +35,7 @@ run();
 ## Configuration:
   - Site: **Require**. The Site, which crawler should be taken a link.
   - wanted_file: **Require**. The file where link to sitemap is include.
-  -sizeSiteMap: **Optional** When sitemap have a include another sitemap, then use sizeSiteMap to decide how deep crawler running. Default is max.
+  - sizeSiteMap: **Optional** When sitemap have a include another sitemap, then use sizeSiteMap to decide how deep crawler running. Default is max.
   - chunkSize: **Optional**. Maximum amount links in one chunk. Default number is generate.
   - strategy: **Optional**. Wchich strategy program have to use. Default is generate.
     - typeStrategy - How a Picker have to take pick links. Default is generate.
