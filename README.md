@@ -41,7 +41,7 @@ run();
     - typeStrategy - How a Picker have to take pick links. Default is generate.
     - pickLink - How much links pick in one chunk. Default is generate. **The field pickLink doesnt allowed to bigger than length chunk**
  
- ### Troublingshooting
+ ## Troublingshooting
  
 ```
 WrongTypeFieldException!!!
@@ -57,6 +57,18 @@ Probably, name files when you wrote in config is doesn't exist or crawler didn't
 TooLengthException!!!
 ```
 The value in sitemap is bigger as reality length links to sitemaps. You have to pick a number in 7 to max, which you can pick in console ---> ``Size sitemaps: 1``
+
+```
+NotFoundSiteException!!!
+```
+Site is doesnt exist :). Check is name site is corectly.
+
+```
+RequiredFieldException
+```
+Some fields is require. You have to fill it.
+
+
 
 
 
