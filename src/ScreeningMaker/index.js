@@ -1,19 +1,21 @@
 const Logger = require('../Commons/Logger');
 const puppeteer = require('puppeteer');
+const CommandBus = require('./src/CommandBus');
 
 class ScreeningMaker {
-  constructor() {
+  constructor(config) {
     this.logger = new Logger();
+    this.CommandBus = new CommandBus(config);
   }
 
   run(links) {
     this.logger.info('Screening Maker starting');
-    (async () => {
-      const browser = await puppeteer.launch();
-      const page = await browser.newPage();
-      await page.goto(links[12]);
-      await page.screenshot({path: 'screenshots/example.png'});
-    })();
+    puppeteer.launch().then((browser) =>
+    this.CommandBus.run(browser).then(() => this.makeScreen(links)));
+  }
+
+  makeScreen(links) {
+    this.CommandBus.runMakeScreen(links);
   }
 }
 

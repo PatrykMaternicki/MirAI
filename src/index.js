@@ -14,7 +14,7 @@ class MirAI {
     this.ChunkBuilder = new ChunkBuilder(config);
     this.ValidatorField = new ValidatorField();
     this.StrategyBuilder = new StrategyBuilder();
-    this.ScreeningMaker = new ScreeningMaker();
+    this.ScreeningMaker = new ScreeningMaker(config);
     this.Picker = new Picker();
     this.init();
   }
@@ -27,8 +27,7 @@ class MirAI {
       let chunks = this.ChunkBuilder.run(urls);
       this.config =  this.ChunkBuilder.config;
       this.config = this.StrategyBuilder.run(this.config);
-      let linkForTest = this.Picker.run(chunks, this.config);
-      this.ScreeningMaker.run(linkForTest);
+      this.ScreeningMaker.run(this.Picker.run(chunks, this.config));
     })
   }
 }

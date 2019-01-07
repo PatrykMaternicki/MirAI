@@ -13,10 +13,10 @@ class Picker {
     for (let i = 0; i < chunks.length; i++) {
       for (let c = 0; c < strategy.pickLink; c++) {
         pickedLinks.push(this.pickRandomLink(chunks[i]));
+        this.logger.info('links: ' + pickedLinks.length);
       }
       this.pickedNumber = [];
     }
-
     return pickedLinks;
   }
 

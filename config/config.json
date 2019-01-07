@@ -1,10 +1,11 @@
 {
-  "site" : "http://budzetalert.pl",
+  "site" : "http://lebork.naszemiasto.pl",
   "wanted_file": "robots.txt",
   "sizeSitemap": 1,
   "chunkSize": 50,
+  "max_screenshots": 1,
   "strategy": {
     "typeStrategy" : "random",
-    "pickLink": 3
+    "pickLink": 10
   }
 }

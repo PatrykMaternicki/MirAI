@@ -18,5 +18,9 @@ module.exports = {
   'strategy': {
     'required': false,
     'type': 'object'
+  },
+  'max_screenshoots': {
+    'required': false,
+    'type': 'number'
   }
 }
