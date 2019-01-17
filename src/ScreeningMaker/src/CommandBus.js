@@ -1,10 +1,15 @@
 const Logger = require('../../Commons/Logger');
+const FolderControler = require('./FolderControler');
 
 class CommandBus {
   constructor(config) {
     this.browser = {}
     this.logger = new Logger();
+    this.folderControler = new FolderControler(config);
     this.config = config;
+    this.isEmpty = false;
+    this.maxStock = '';
+    this.i = 0;
   }
 
   run(browser) {
@@ -24,24 +29,34 @@ class CommandBus {
   }
 
   runMakeScreen(link) {
-    let i = 0;
-    let isEmpty = false;
-    let maxStock = this.config.max_screenshots ? this.config.max_screenshots : link.length;
+    this.maxStock = this.config.max_screenshots ? this.config.max_screenshots : link.length;
     (async () => {
-      while (!isEmpty) {
-        if (!this.isStockScreensIsMax(i, maxStock)) {
-          await this.page.goto(link[i]);
+      while (!this.isEmpty) {
+        if (!this.isStockScreensIsMax(this.i, this.maxStock)) {
+          if (await this.runCommandSizeFolder()) {
+            this.logger.info('Folder have maximum size');
+            this.isEmpty = true;
+            process.exit(0);
+          }
+          await this.page.goto(link[this.i]);
           await this.page.setViewport({width: 5600, height: 5000});
           await this.page.evaluate(() => document.querySelector('#cross-dialog').remove());
-          await this.page.screenshot({path: `screenshots/${i}.png`, fullPage: true});
-          i++;
-          await this.logger.info(`Screen made: ${i} / ${maxStock} `);
+          await this.page.screenshot({path: `screenshots/${this.i}.png`, fullPage: true});
+          this.i++;
+          await this.logger.info(`Screen made: ${this.i} / ${this.maxStock} `);
         } else {
           this.logger.info('Screen complete');
           isEmpty = true;
         }
       }
     })();
+  }
+
+  async runCommandSizeFolder() {
+    let promise = new Promise((resolve, reject) => {
+      resolve(this.folderControler.isMaxSizeFolder());
+    });
+    return await promise;
   }
 
   isStockScreensIsMax(size, maxSize) {

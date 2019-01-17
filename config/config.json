@@ -3,7 +3,8 @@
   "wanted_file": "robots.txt",
   "sizeSitemap": 1,
   "chunkSize": 50,
-  "max_screenshots": 1,
+  "cache": true,
+  "max_size_folder": 4194304000,
   "strategy": {
     "typeStrategy" : "random",
     "pickLink": 10

@@ -25,6 +25,7 @@
     "chalk": "^2.4.1",
     "chunk": "0.0.2",
     "connect": "^3.6.6",
+    "get-folder-size": "^2.0.0",
     "nodemon": "^1.18.6",
     "puppeteer": "^1.10.0",
     "request": "^2.88.0",
