@@ -18,6 +18,7 @@ const config = {
   "wanted_file": "robots.txt",
   "sizeSitemap": 1,
   "max_size_folder": 4194304000,
+  "cache": true,
   max_screenshots: 1,
   "chunkSize": 50,
   "strategy": {
