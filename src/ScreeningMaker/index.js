@@ -8,14 +8,18 @@ class ScreeningMaker {
     this.CommandBus = new CommandBus(config);
   }
 
-  run(links) {
-    this.logger.info('Screening Maker starting');
-    puppeteer.launch().then((browser) =>
-    this.CommandBus.run(browser).then(() => this.makeScreen(links)));
+  async run(links) {
+    return new Promise((resolve, reject) => {
+      this.logger.info('Screening Maker starting');
+      puppeteer.launch().then((browser) =>
+      this.CommandBus.run(browser).then(() => this.makeScreen(links).then(value=>resolve(value))));
+    })
   }
 
-  makeScreen(links) {
-    this.CommandBus.runMakeScreen(links);
+  async makeScreen(links) {
+    return new Promise((resolve, reject) => {
+      this.CommandBus.runMakeScreen(links).then(value => resolve(value));
+    });
   }
 }
 

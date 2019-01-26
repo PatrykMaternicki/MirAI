@@ -23,12 +23,32 @@
   "homepage": "https://github.com/PatrykMaternicki/MirAI#readme",
   "devDependencies": {
     "chalk": "^2.4.1",
+    "chrome-launcher": "^0.10.5",
     "chunk": "0.0.2",
     "connect": "^3.6.6",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-ejs-extend": "0.0.1",
     "get-folder-size": "^2.0.0",
+    "jsonfile": "^5.0.0",
     "nodemon": "^1.18.6",
     "puppeteer": "^1.10.0",
     "request": "^2.88.0",
-    "xmldom": "^0.1.27"
+    "taffy": "^2.6.2",
+    "webpack": "^4.29.0",
+    "xmldom": "^0.1.27",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "dependencies": {
+    "vue": "^2.5.21",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.0.1",
+    "@tensorflow-models/coco-ssd": "^0.1.1",
+    "@tensorflow/tfjs": "^0.14.2"
   }
 }

@@ -4,6 +4,7 @@
   "sizeSitemap": 1,
   "chunkSize": 50,
   "cache": true,
+  "max_screenshots": 1,
   "max_size_folder": 4194304000,
   "strategy": {
     "typeStrategy" : "random",
