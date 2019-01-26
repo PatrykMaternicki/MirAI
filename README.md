@@ -17,6 +17,8 @@ const config = {
   "site" : "http://budzetalert.pl",
   "wanted_file": "robots.txt",
   "sizeSitemap": 1,
+  "max_size_folder": 4194304000,
+  "cache": true,
   max_screenshots: 1,
   "chunkSize": 50,
   "strategy": {
@@ -38,6 +40,12 @@ run();
   - wanted_file: **Require**. The file where link to sitemap is include.
   - sizeSiteMap: **Optional** When sitemap have a include another sitemap, then use sizeSiteMap to decide how deep crawler running. Default is max.
   - max_screenshots: **Optional** How many screenshots make. Default is max.
+  - max_size_folders: **Optional** How many bytes ScreenMaker able to save in folder. Default is 500MB.
+  - cache: **Optional** Use JSON Database to load links. Default is true. When you set flag false, then each loops MirraI init command:
+    - Init Crawler
+    - Make Strategy (if doesn't exist)
+    - Build Chunks
+    - Pick Links in each chunks.
   - chunkSize: **Optional**. Maximum amount links in one chunk. Default number is generate.
   - strategy: **Optional**. Wchich strategy program have to use. Default is generate.
     - typeStrategy - How a Picker have to take pick links. Default is generate.
