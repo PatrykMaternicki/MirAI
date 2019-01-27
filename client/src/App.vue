@@ -1,15 +1,21 @@
 <template>
-  <div class="container">
+  <div class="container-fluid left-container">
     <div class="row">
       <div class="col-lg-12">
         <h1 class="h3"><i class="far fa-image fa-2"></i>Screenshots: {{ preparedScreenshots }}/{{ maxStockScreenshots }}</h1>
       </div>
     </div>
-    <GridImage />
+    <div class="row">
+      <div class="col-lg-10">
+        <GridImage />
+      </div>
+      <Sidebar />
+    </div>
   </div>
 </template>
 <script>
   import GridImage from './partials/GridImage.vue';
+  import Sidebar from './partials/Sidebar.vue';
   export default {
     name: 'app',
     data () {
@@ -19,12 +25,12 @@
       }
     },
     created() {
-      console.log(window.preparedScreenshots);
       this.maxStockScreenshots = window.maxStockScreenshots;
       this.preparedScreenshots = window.preparedScreenshots;
     },
     components: {
-      GridImage
+      GridImage,
+      Sidebar
     }
   }
 </script>
