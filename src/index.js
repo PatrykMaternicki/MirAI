@@ -11,6 +11,7 @@ const CacheLoader = require('./CacheLoader');
 const DbManager = require('./DbManager');
 const ModelCreator = require('./ModelCreator');
 const ApplicationServer = require('./ApplicationServer');
+const SourceDataPicker = require('./SourceDataPicker');
 
 class MirAI {
   constructor(config) {
@@ -28,6 +29,7 @@ class MirAI {
     this.CacheLoader = new CacheLoader();
     this.ModelCreator = new ModelCreator();
     this.ApplicationServer = new ApplicationServer();
+    this.SourceDataPicker = new SourceDataPicker();
     this.init();
   }
 
@@ -50,9 +52,13 @@ class MirAI {
     (async () => {
       this.ScreeningMaker.run(linksList).then(
         values => {
-          this.ApplicationServer.start();
-        }
-      )
+          this.logger.info('Get data source from screenshots folder');
+          this.SourceDataPicker.getStockScreenshots().then(
+            value => {
+              this.ApplicationServer.feedData(linksList, value);
+              this.ApplicationServer.start();
+            });
+        });
     })();
   }
 
@@ -66,11 +72,7 @@ class MirAI {
       if (!this.cacheIsActive() && this.initConfig.cache) {
         this.DbManager.save(linksList);
         this.DbManager.saveToFile();
-        this.CacheLoader.setCache(linksList);
-        this.CacheLoader.setActiveCache(true);
       }
-
-      this.runScreenMaker(linksList);
     });
   }
 

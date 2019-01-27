@@ -11,10 +11,16 @@ class ApplicationServer {
     this.Bundler = new Bundler();
   }
 
+  feedData(data, preparedScreenshots) {
+    console.log('a tutaj', preparedScreenshots);
+    this.ServerContainer.feedData(data.length, data, preparedScreenshots);
+  }
+
   start() {
     (async () => {
       await this.logger.info('Build Application');
       await this.Bundler.startWebpack();
+      await this.logger.info('Feed data Server Application');
       await this.logger.info('Run Server Application');
       await this.ServerContainer.startExpress();
       await this.logger.info('Server started');

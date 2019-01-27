@@ -1,16 +1,40 @@
-const webpack = require('webpack');
-const config = require('../config/webpack.config.prod.js');
-const path = require('path');
-
 class Bundler {
   constructor() {
 
   }
 
   async startWebpack() {
-    console.log(path.resolve(__dirname, '../client/app.js'));
     return new Promise((resolve, reject) => {
-      webpack(config);
+      // webpack({
+      //   entry: {
+      //     app: 'C:\\Users\\pmaternicki\\Documents\\git\\MirAI\\src\\ApplicationServer\\client\\app.js'
+      //   },
+
+      //   output: {
+      //     filename: '..\\src\ApplicationServer\\dist\\app.min.js',
+      //     library: '[name]',
+      //     libraryTarget: 'umd',
+      //     umdNamedDefine: true
+      //   },
+
+      //   module: {
+      //     rules: [
+      //         {
+      //           test: /\.js$/,
+      //           exclude: /node-modules/,
+      //           loader: 'babel-loader',
+      //         },
+      //         {
+      //           test: /\.vue$/,
+      //           loader: 'vue-loader'
+      //         }
+      //     ]
+      //   },
+
+      //   plugins: [
+      //       new VueLoaderPlugin()
+      //   ]
+      // });
       resolve(true);
     })
   }

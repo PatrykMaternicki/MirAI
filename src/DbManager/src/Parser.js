@@ -9,7 +9,7 @@ class Parser {
 
     stringfile.forEach(
       (row) => {
-        json.links.push(this.splitToObject(row));
+        json.links.push(row[2]);
     });
 
     json.date = new Date();

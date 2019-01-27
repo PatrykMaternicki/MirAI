@@ -4,16 +4,18 @@ const path = require('path');
 class FolderControler {
   async isFileExist() {
     return new Promise((resolve, reject) => {
-      fs.readdir(path.resolve(__dirname + '/../../../file/'), (err, file) => {
-        resolve(file.length > 0);
+      this.nameFile = this.prepareNameFile();
+      jsonReader.readFile(path.resolve(__dirname + '/../../../file/' + this.nameFile), (err, obj) => {
+        if (err) {
+          resolve(false);
+        }
+        resolve(true);
       });
     });
   }
 
   async save(json) {
-    console.log(path.resolve());
-    await this.createFile();
-    await jsonReader.writeFile(path.resolve(__dirname + '/../../../file/') + this.nameFile, json, function (err) {
+    await jsonReader.writeFile(path.resolve(__dirname + '/../../../file/' + this.nameFile), json, function (err) {
       if (err) console.error(err)
     });
   }
@@ -27,14 +29,10 @@ class FolderControler {
   }
 
   async loadFile() {
-    console.log('path',path.resolve(__dirname));
     this.nameFile = this.prepareNameFile();
     return new Promise((resolve, reject) => {
       jsonReader.readFile(path.resolve(__dirname + '/../../../file/' + this.nameFile), function (err, obj) {
-        let filteredObject = [];
-        if (err) console.error(err)
-        obj.links.forEach(row => filteredObject.push(row.link))
-        resolve(filteredObject);
+        resolve(obj.links);
       });
     });
   }
