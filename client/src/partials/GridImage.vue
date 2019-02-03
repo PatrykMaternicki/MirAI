@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col-6 col-sm-3" v-for="n in preparedScreenshots">
-        <img :src="`/images/screenshots/${n}.png`" class="col grid-image"/>
+        <img :id="`${n}-item`" :src="`/images/screenshots/${n}.png`" class="col grid-image"/>
       </div>
     </div>
   </div>

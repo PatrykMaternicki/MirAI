@@ -40,7 +40,7 @@ class CommandBus {
               process.exit(0);
             }
             await this.page.goto(link[this.i]);
-            await this.page.setViewport({width: 5600, height: 5000});
+            await this.page.setViewport({width: 500, height: 500});
             await this.page.evaluate(() => document.querySelector('#cross-dialog').remove());
             await this.page.screenshot({path: `src/ApplicationServer/dist/images/screenshots/${this.i}.png`, fullPage: true});
             this.i++;

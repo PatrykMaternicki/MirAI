@@ -7,12 +7,18 @@
     </div>
     <div class="row">
       <div class="col-12 col-sm-12">
-        <img :src="`/images/screenshots/0.png`" class="col"/>
+        <img id='model' :src="`/images/screenshots/0.png`" class="col"/>
       </div>
     </div>
     <div class="row button-wraper">
       <button type="button" class="btn btn-outline-light btn-lg">Change</button>
-      <button type="button" class="btn btn-outline-light btn-lg">Start</button>
+      <button type="button"  @click='startModel'  class="btn btn-outline-light btn-lg">Start</button>
+    </div>
+    <div class='row'>
+      {{ runing.label }}
+    </div>
+    <div class='row'>
+      <div id='canvas-container'></div>
     </div>
   </div>
 </template>
@@ -26,6 +32,17 @@
     },
     created() {
       this.preparedScreenshots = Number.parseInt(window.preparedScreenshots);
-    }
+    },
+    methods: {
+      startModel() {
+        let image = document.getElementById('model');
+        this.$store.dispatch('startModel', image);
+      }
+    },
+    computed: {
+      runing() {
+        return this.$store.getters.runing;
+      }
+    },
   }
 </script>

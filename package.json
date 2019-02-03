@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/PatrykMaternicki/MirAI.git"
   },
-  "ignore": ["file/*"],
+  "ignore": [
+    "file/*"
+  ],
   "keywords": [
     "deep",
     "learning",
@@ -36,8 +38,11 @@
     "express": "^4.16.4",
     "express-ejs-extend": "0.0.1",
     "get-folder-size": "^2.0.0",
+    "install": "^0.12.2",
     "jsonfile": "^5.0.0",
     "nodemon": "^1.18.6",
+    "npm": "^6.7.0",
+    "p5": "^0.7.3",
     "puppeteer": "^1.10.0",
     "request": "^2.88.0",
     "taffy": "^2.6.2",
@@ -51,8 +56,6 @@
   "dependencies": {
     "vue": "^2.5.21",
     "vue-router": "^3.0.2",
-    "vuex": "^3.0.1",
-    "@tensorflow-models/coco-ssd": "^0.1.1",
-    "@tensorflow/tfjs": "^0.14.2"
+    "vuex": "^3.0.1"
   }
 }

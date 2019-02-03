@@ -6,16 +6,18 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-10">
-        <GridImage />
+      <div class="col-lg-12">
+        <GridImage v-if="!initCompare"  />
+        <CompareTo v-if="initCompare" />
       </div>
-      <Sidebar />
+      <Sidebar v-if="!initCompare" />
     </div>
   </div>
 </template>
 <script>
   import GridImage from './partials/GridImage.vue';
   import Sidebar from './partials/Sidebar.vue';
+  import CompareTo from './partials/CompareTo.vue';
   export default {
     name: 'app',
     data () {
@@ -28,9 +30,15 @@
       this.maxStockScreenshots = window.maxStockScreenshots;
       this.preparedScreenshots = window.preparedScreenshots;
     },
+     computed: {
+      initCompare() {
+        return this.$store.getters.initCompare;
+      }
+    },
     components: {
       GridImage,
-      Sidebar
+      Sidebar,
+      CompareTo
     }
   }
 </script>

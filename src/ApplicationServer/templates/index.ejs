@@ -29,10 +29,11 @@
       background-image:url('/images/pattern/prism.png');
       height: 100vh;
       position: fixed;
-      width: 20%;
+      width: 50%;
       right: 0;
       top: 0;
       color: white;
+      overflow: scroll;
     }
 
     .left-container {
@@ -73,6 +74,39 @@
       </div>
     </nav>
     <div id="app"></div>
+
+    <!-- importing ML5 library into the project -->
+    <script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js"></script>
+
+    <!-- importing p5 addons library into the project -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+    <script>
+      // function setup() {
+      // canvasObject = createCanvas(640, 480);
+      // window.imageObject = loadImage('/images/screenshots/dummy.png');
+      // image(window.imageObject,0,0,400,300);
+
+      // //initialize the mobilenet object with a callback
+      // // mobileNet= ml5.imageClassifier('MobileNet',ModelLoaded);
+      // }
+
+      // function imageReady(img) {
+      //     image(img,0,0,400,300);
+      // }
+
+      var sketch = function(p) {
+        p.setup = function() {
+        window.imageObject = p.loadImage('/images/screenshots/0.png');
+        p.createCanvas(500, 2800);
+        },
+
+        p.draw = function() {
+          p.image(window.imageObject,0,0);
+        }
+      };
+
+      window.p5App = new p5(sketch, 'canvas-container');
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js"></script>
     <script src="/app.min.js"></script>
   </body>
