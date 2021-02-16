@@ -1,6 +1,7 @@
 # MirAI
 
 ## How to start?
+!You should run console with administration rules!
 1. Run method:
 ``
 npm install
